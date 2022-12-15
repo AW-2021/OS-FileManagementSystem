@@ -1,0 +1,28 @@
+MEMORY DICTIONARY
+Block item
+Properties:
+- block no
+- block size
+- isfull
+- bytes occupied
+- file name (which occupies)
+- file size (which occupies)
+
+List of dictionaries
+memory1 = [
+    {'no': 0, 'size': 20, 'isfull': 'True', 'bytes': 16, 'fileName': 'newFile1', 'fileSize': 16},
+    {'no': 1, 'size': 20, 'isfull': 'True', 'bytes': 18, 'fileName': 'newFile2', 'fileSize': 18},
+    {'no': 2, 'size': 20, 'isfull': 'False', 'bytes': 0, 'fileName': '', 'fileSize': },
+    {},
+    {},
+]
+
+STUFF TO ADD IN:
+Ability to write to file directly without open command first
+Saving to JSON file in real time and not just upon exiting
+
+HOW I WANTED IT:
+{"memorychunk1": "[ {},{},{},... ]", "memorychunk2": "[ {},{},{},... ]", "memorychunk3": "[ {}*10]" }
+
+HOW IT LOOKS LIKE NOW:
+{"0": "[ {}, fcontent ]", "1": "[ {}, fcontent ]", "2": "[ {}, fcontent]", .... }
