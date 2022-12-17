@@ -2,72 +2,72 @@
   "0": [
     {
       "name": "block 0",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": true,
-      "byteOccupied": 26,
-      "fileName": "newfile1",
-      "fileSize": 26,
-      "content": "Hi there hello hello amina"
+      "byteOccupied": 0,
+      "fileName": "file1",
+      "fileSize": 0,
+      "content": ""
     },
-    "Hi there hello hello amina"
+    ""
   ],
   "1": [
     {
       "name": "block 1",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": true,
-      "byteOccupied": 22,
-      "fileName": "newfile2",
-      "fileSize": 22,
-      "content": "Good Morning starshine"
+      "byteOccupied": 18,
+      "fileName": "file2",
+      "fileSize": 18,
+      "content": "HHHHHH BBBBB NNNNN"
     },
-    "Good Morning starshine"
+    "HHHHHH BBBBB NNNNN"
   ],
   "2": [
     {
       "name": "block 2",
-      "size": 30,
+      "size": 50,
       "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
+      "isOccupied": true,
+      "byteOccupied": 4,
+      "fileName": "file100",
+      "fileSize": 4,
+      "content": "HERE"
     },
-    null
+    "HERE"
   ],
   "3": [
     {
       "name": "block 3",
-      "size": 30,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
+      "size": 50,
+      "isFull": true,
+      "isOccupied": true,
+      "byteOccupied": 50,
+      "fileName": "file4",
+      "fileSize": 50,
+      "content": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj "
     },
-    null
+    "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj "
   ],
   "4": [
     {
       "name": "block 4",
-      "size": 30,
+      "size": 50,
       "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
+      "isOccupied": true,
+      "byteOccupied": 6,
+      "fileName": "file6",
+      "fileSize": 6,
+      "content": "ol;CF;"
     },
-    null
+    "ol;CF;"
   ],
   "5": [
     {
       "name": "block 5",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -80,7 +80,7 @@
   "6": [
     {
       "name": "block 6",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -93,7 +93,7 @@
   "7": [
     {
       "name": "block 7",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -106,7 +106,7 @@
   "8": [
     {
       "name": "block 8",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -119,7 +119,7 @@
   "9": [
     {
       "name": "block 9",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -132,7 +132,7 @@
   "10": [
     {
       "name": "block 10",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -145,7 +145,7 @@
   "11": [
     {
       "name": "block 11",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -158,7 +158,7 @@
   "12": [
     {
       "name": "block 12",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -171,7 +171,7 @@
   "13": [
     {
       "name": "block 13",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -184,7 +184,7 @@
   "14": [
     {
       "name": "block 14",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -197,7 +197,7 @@
   "15": [
     {
       "name": "block 15",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -210,7 +210,7 @@
   "16": [
     {
       "name": "block 16",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -223,7 +223,7 @@
   "17": [
     {
       "name": "block 17",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -236,7 +236,7 @@
   "18": [
     {
       "name": "block 18",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
@@ -249,7 +249,7 @@
   "19": [
     {
       "name": "block 19",
-      "size": 30,
+      "size": 50,
       "isFull": false,
       "isOccupied": false,
       "byteOccupied": 0,
