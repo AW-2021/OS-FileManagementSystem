@@ -48,7 +48,7 @@ class Memory:
                     print('File store successful.')
                     return block
                 else:
-                    print('File size too large. Try to truncate first.')
+                    print('File store failed. Size cannot be greater than 30 bytes')
             else:
                 print('Block not found. Try again')
                           
