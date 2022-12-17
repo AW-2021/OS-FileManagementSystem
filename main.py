@@ -1,7 +1,7 @@
 # Importing libraries and our own modules
 import json
 import os.path
-import Memory as memoryManager
+# import Memory as memoryManager
 
 class Folder:
     def __init__(self, name, location, parent):
@@ -12,7 +12,6 @@ class Folder:
         self.parent = parent
         if self.parent != None:
             self.parent.children.append(self)
-
 
 class File:
     def __init__(self, name, content, parent):
@@ -135,9 +134,9 @@ def open_file(fileName):
         if child.name == fileName:
             if child.type == "file":
                 return child
-
+    
     print('No such file')
-    return
+    return "empty"
 
 
 def storeRecursively(veryRoot, fileSystem):
@@ -170,7 +169,7 @@ def convertJsonToTree(jsonFile, parent):
     global root
 
     if (root.children == []):
-        print("empty")
+        #print("empty")
         parent = root
 
     for key in jsonFile:
@@ -205,27 +204,28 @@ def print_directory_structure(directory):
         else:
             return
 
+# To help users understand which command to enter to carry out desired operation
 def manual():
     print("\tOperation Manual")
     print("1. Make a directory - mkdir <folder>")
-    print("2. Change the directory - cd <folder>")
+    print("2. Change the directory - cd <folder>\n NOTE: cd .. to return to root directory")
     print("3. Create a file - touch <file> <<optional:file content>>")
     print("4. Delete a file - del <file>")
     print("5. Move a file - mov <source folder/file> <destination folder>")
     print("6. Open a file - open <file>")
     print("7. Close a file - close <file>")
-    print("8. Write to a file - wr <<optional: write-at position>")
-    print("9. Read from a file - rd <<optional: starting index>> <<optional: content size>>")
-    print("10. Move within a file - movwithin <starting index> <content size> <target index>")
-    print("11. Truncate a file - trunc <size>")
-    print("12. List all files & folders in current directory - ls")
-    print("13. Display memory map - map")
-    print("14. Display directory map - fmap")
-    print("15. Exit the system - exit")
+    print("8. Write to end of file - write_to_file <file> <content>")
+    print("9. Write to a file at said position - write_at_pos <file> <write-at position> <content>")
+    print("10. Read from a file - rd <<optional: starting index>> <<optional: content size>>")
+    print("11. Move within a file - movwithin <starting index> <content size> <target index>")
+    print("12. Truncate a file - trunc <size>")
+    print("14. Display memory map - map")
+    print("15. Display directory map - fmap")
+    print("16. List all files & folders in current directory - ls")
+    print("17. Exit the system - exit")
 
-
+# Initializing variable to store opened file in
 child = ""
-completeString = ""
 
 # Check if fp exists or is empty
 if os.path.isfile('sample.dat'):
@@ -283,7 +283,7 @@ while (True):
                 print('Invalid Format. Enter "man" for operations manual')
         case 'open':
             child = open_file(command[1])
-            if (child != ""):
+            if (child != "" and child != "empty"):
                 print('Opened {}'.format(child.name))
             else:
                 print('File opening failed.')
@@ -293,15 +293,43 @@ while (True):
                 child = ""
             else:
                 print('File already closed.')
-        case 'wr':
-            if (child != "" and len(command) == 1):
-                file_text = input("Enter text: ")
-                child.write_to_file(file_text)
-            elif (child != "" and len(command) == 2):
-                file_text = input("Enter text: ")
-                child.write_to_file(file_text, int(command[1]))
+        case 'write_to_file':
+            if (child == ""): # Opening file for write if not already opened
+                child = open_file(command[1])
+
+            if (child != "" and child != "empty" and len(command) >= 3): # Write at end of file
+                completeString = ""
+                for string in command:
+                    if (command.index(string) >= 2):
+                        if (command.index(string) < len(command)):
+                            if (completeString == ""):
+                                completeString = string
+                            else:
+                                completeString = completeString + " " + string
+                        else:
+                            break
+               
+                child.write_to_file(completeString)
             else:
-                print("No file was opened")
+                print('Invalid Format. Enter "man" for operations manual')
+        case 'write_at_pos':
+            if (child == ""): # Opening file for write if not already opened
+                child = open_file(command[1])
+
+            if (child != "" and child != "empty" and len(command) >= 4): # Write at specified position in file
+                completeString = ""
+                for string in command:
+                    if (command.index(string) >= 3):
+                        if (command.index(string) < len(command)):
+                            if (completeString == ""):
+                                completeString = string
+                            else:
+                                completeString = completeString + " " + string
+                        else:
+                            break
+                child.write_to_file(completeString, int(command[2]))
+            else:
+                print('Invalid Format. Enter "man" for operations manual')
         case 'rd':
             if (child != "" and len(command) == 1):
                 file_content = child.read_from_file()
