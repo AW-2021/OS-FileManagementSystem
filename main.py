@@ -3,9 +3,6 @@ import json
 import os.path
 import Memory as memoryManager
 
-import json
-import os.path
-
 class Folder:
     def __init__(self, name, location, parent):
         self.type = "folder"
