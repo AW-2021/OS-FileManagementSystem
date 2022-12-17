@@ -39,7 +39,7 @@ class File:
         else:
             return self.content[start:start+size]
 
-    def move_within_file(self, start, size, target):
+    def move_within_file(self, start, target, size):
         newContent = self.content[start:start+size]
         self.content = self.content[:start] + self.content[start+size:]
         self.content = self.content[:target] + \
@@ -216,13 +216,13 @@ def manual():
     print("7. Close a file - close <file>")
     print("8. Write to end of file - write_to_file <file> <content>")
     print("9. Write to a file at said position - write_at_pos <file> <write-at position> <content>")
-    print("10. Read from a file - rd <<optional: starting index>> <<optional: content size>>")
-    print("11. Move within a file - movwithin <starting index> <content size> <target index>")
-    print("12. Truncate a file - trunc <size>")
-    print("14. Display memory map - map")
-    print("15. Display directory map - fmap")
-    print("16. List all files & folders in current directory - ls")
-    print("17. Exit the system - exit")
+    print("10. Read from a file - rd <file> <<optional: starting index>> <<optional: content size>>")
+    print("11. Move within a file - movwithin <file> <starting index> <target index> <content size>")
+    print("12. Truncate a file - trunc <file> <size>")
+    print("13. Display memory map - map")
+    print("14. Display directory map - fmap")
+    print("15. List all files & folders in current directory - ls")
+    print("16. Exit the system - exit")
 
 # Initializing variable to store opened file in
 child = ""
@@ -258,6 +258,7 @@ while (True):
             if (len(command) == 2):
                 create(command[1])
             elif (len(command) >= 3):
+                completeString = ""
                 for string in command:
                     if (command.index(string) >= 2):
                         if (command.index(string) < len(command)):
@@ -331,26 +332,42 @@ while (True):
             else:
                 print('Invalid Format. Enter "man" for operations manual')
         case 'rd':
-            if (child != "" and len(command) == 1):
+            if (child == ""): # Opening file for write if not already opened
+                child = open_file(command[1])
+
+            if (child != "" and child != "empty" and len(command) == 2):
                 file_content = child.read_from_file()
                 print(file_content)
-            elif (child != "" and len(command) == 3):
-                file_content = child.read_from_file(int(command[1]), int(command[2]))
+            elif (child != "" and child != "empty" and len(command) == 4):
+                file_content = child.read_from_file(int(command[2]), int(command[3]))
                 print(file_content)
-            elif (child == ""):
+            elif (child == "" or child == "empty"):
                 print("No file was opened")
             else:
                 print('Invalid Format. Enter "man" for operations manual')
-        case 'movwithin':
-            if (child != "" and len(command) == 4):
-                child.move_within_file(int(command[1]), int(command[2]), int(command[3]))
-            else:
+        case 'movwithin': 
+            if (child == ""): # Opening file for write if not already opened
+                child = open_file(command[1])
+
+            if (child != "" and child != "empty" and len(command) == 5):
+                if(int(command[3]) > int(command[2])):
+                    child.move_within_file(int(command[2]), int(command[3]), int(command[4]))
+                else:
+                    print("Target index out of range. Try again")
+            elif (child == "" or child == "empty"):
                 print("No file was opened")
+            else:
+                print('Invalid Format. Enter "man" for operations manual')
         case 'trunc':
-            if (child != "" and len(command) == 2):
-                child.truncate(int(command[1]))
-            else:
+            if (child == ""): # Opening file for write if not already opened
+                child = open_file(command[1])
+
+            if (child != "" and child != "empty" and len(command) == 3):
+                child.truncate(int(command[2]))
+            elif (child == "" or child == "empty"):
                 print("No file was opened")
+            else:
+                print('Invalid Format. Enter "man" for operations manual')
         case 'ls':
             ls()
         case 'map':
