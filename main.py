@@ -1,8 +1,8 @@
 # Importing libraries and our own modules
 import json
 import os.path
-# import Memory as memoryManager
-
+import pickle
+import Memory as memoryManager
 class Folder:
     def __init__(self, name, location, parent):
         self.type = "folder"
@@ -31,7 +31,8 @@ class File:
                 content + self.content[writeAtPosition:]
             self.size = len(self.content)
 
-        print('Write successful')
+        block_returned = M1.write_to_block(self.name, self.content)
+        print(f'Write successful\n{block_returned}')
 
     def read_from_file(self, start=0, size=0):
         if start == 0 and size == 0:
@@ -51,7 +52,7 @@ class File:
         self.size = maxSize
         print("File size reduced to {} bytes".format(maxSize))
 
-
+M1 = memoryManager.Memory()
 root = Folder('root', 'root', None)
 currentDir = root
 
@@ -87,10 +88,21 @@ def mkdir(name):
     print('Folder creation successful.')
 
 
-def create(fileName, fileContent=""):
+def create(fileName, fileContent = ""):
     global currentDir
-    File(fileName, fileContent, currentDir)
-    print('File creation successful.')
+
+    if (len(fileContent) <= 50):
+        fileobj = File(fileName, fileContent, currentDir)
+    else:
+        fileobj = File(fileName, fileContent[0:50], currentDir)
+    
+    block_returned = M1.write_to_block(fileobj.name, fileobj.content)
+
+    if (block_returned == None):
+        delete(fileobj.name)
+        print(f'File creation failed. Not enough space in memory')
+    else:
+        print(f'File creation successful.\n{block_returned}')
 
 
 def move(name, destination):
@@ -119,6 +131,7 @@ def delete(fileName):
         if child.name == fileName:
             if child.type == "file":
                 currentDir.children.remove(child)
+                M1.deallocate_memory(child.name)
                 print("File successfully deleted.")
                 return
 
@@ -169,6 +182,7 @@ def convertJsonToTree(jsonFile, parent):
     global root
 
     if (root.children == []):
+        #print("empty")
         parent = root
 
     for key in jsonFile:
@@ -218,8 +232,8 @@ def manual():
     print("10. Read from a file - rd <file> <<optional: starting index>> <<optional: content size>>")
     print("11. Move within a file - movwithin <file> <starting index> <target index> <content size>")
     print("12. Truncate a file - trunc <file> <size>")
-    print("13. Display memory map - map")
-    print("14. Display directory map - fmap")
+    print("13. Display memory map - show_memory_map")
+    print("14. Display directory map - filemap")
     print("15. List all files & folders in current directory - ls")
     print("16. Exit the system - exit")
 
@@ -369,13 +383,14 @@ while (True):
                 print('Invalid Format. Enter "man" for operations manual')
         case 'ls':
             ls()
-        case 'map':
-            print('TO BE IMPLEMENTED. WAITTTT')
-        case 'fmap':
+        case 'show_memory_map':
+            M1.memory_map()
+        case 'filemap':
             newCurrentDir = root
             print_directory_structure(newCurrentDir)
         case 'exit':
             saveToJson()
+            M1.memory_to_json()
             print("Shutting down system & saving... Goodbye!")
             break
         case _:
