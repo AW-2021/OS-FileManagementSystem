@@ -169,7 +169,6 @@ def convertJsonToTree(jsonFile, parent):
     global root
 
     if (root.children == []):
-        #print("empty")
         parent = root
 
     for key in jsonFile:
