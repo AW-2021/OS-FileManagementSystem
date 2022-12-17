@@ -1,1 +1,1 @@
-{"folder1": {"folder2": {"folder3": {"newfile1": {"name": "newfile1", "content": "HI THERE!", "type": "file"}}}}}
+{"folder1": {"newFile1": {"name": "newFile1", "content": "Islamabadire NUST iss whe located.", "type": "file"}}, "folder2": {"folder3": {"folder4": {}}, "newFile2": {"name": "newFile2", "content": "Hello tAAAAAhere", "type": "file"}}}
