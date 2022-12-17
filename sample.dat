@@ -1,1 +1,1 @@
-{"folder1": {"newFile1": {"name": "newFile1", "content": "GOOD NIGHT?!HELL NOUNDERSTOOD OKAY", "type": "file"}}, "folder2": {"folder3": {"folder4": {}}, "newFile2": {"name": "newFile2", "content": "Hello there amina", "type": "file"}}}
+{"folder1": {"newFile1": {"name": "newFile1", "content": "GOOD NIGHT?!HELL NOUNDERSTOOD OKAY", "type": "file"}}, "folder2": {"folder3": {"folder4": {}}, "newFile2": {"name": "newFile2", "content": "Hello there amina", "type": "file"}}, "newFile": {"name": "newFile", "content": "abcdef", "type": "file"}}
