@@ -1,6 +1,5 @@
 import json
 import pickle
-import Folders_Files as fileManager
 
 class Block:
     def __init__(self, name, size = 30, isFull = False, isOccupied = False, byteOccupied = 0, fileName = None, fileSize = 0, content = None):
