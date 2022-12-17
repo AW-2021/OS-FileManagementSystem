@@ -18,8 +18,12 @@ memory1 = [
 ]
 
 STUFF TO ADD IN:
-Ability to write to file directly without open command first
+:) Ability to write to file directly without open command first
 Saving to JSON file in real time and not just upon exiting
+:) File should never be created if not allocated to memory also
+:) Updating memory upon writing more content to a file
+Loading memory.json to retrieve last saved block structure
+:) New file should never be created if there are no free memory blocks
 
 HOW I WANTED IT:
 {"memorychunk1": "[ {},{},{},... ]", "memorychunk2": "[ {},{},{},... ]", "memorychunk3": "[ {}*10]" }
