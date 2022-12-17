@@ -15,8 +15,8 @@ class Block:
 
 class Memory:
     def __init__(self):
-        self.memory = [None] * 20
-        self.size = 20
+        self.memory = [None] * 3
+        self.size = 3
         self.occupied = False
 
         for i in range(self.size):
@@ -33,9 +33,9 @@ class Memory:
             }
         
 
-    def write_to_block(self, inputblock, fName, content):
+    def write_to_block(self, fName, content):
         for block in self.memory:
-            if block != None and block['name'] == inputblock:
+            if block != None:
                 if block['isOccupied'] == False and len(content) <= block['size']:
                     block['fileName'] = fName
                     block['fileSize'] = len(content)
@@ -47,11 +47,10 @@ class Memory:
 
                     print('File store successful.')
                     return block
-                else:
-                    print('File store failed. Size cannot be greater than 30 bytes')
             else:
-                print('Block not found. Try again')
-                          
+                print('No block initialized in memory.')
+
+        print(f'File store for {fName} failed. Try again')                
 
     def get_value(self, inputblock):
         for block in self.memory:
@@ -106,23 +105,24 @@ class Memory:
 
 ######################## TESTING FUNCTIONS BELOW ###########################
 m1 = Memory()
+# print(m1.memory[0])
+
+m1.write_to_block('newfile1', 'Hi there hello hello amina')
 print(m1.memory[0])
-
-m1.write_to_block('block 0', 'newfile1', 'Hi there hello hello amina')
-print(m1.memory[0])
-m1.write_to_block('block 1', 'newfile2', 'Good Morning starshine')
+m1.write_to_block('newfile2', 'Good Morning starshine')
 print(m1.memory[1])
-m1.write_to_block('block 3', 'newfile3', 'Sweet dreams forever')
-print(m1.memory[1])
+m1.write_to_block('newfile3', 'Sweet dreams forever')
+print(m1.memory[2])
+m1.write_to_block('newfile4', 'AAAABBBBB')
 
-output_block = m1.get_value('block 1')
-print(output_block)
+# output_block = m1.get_value('block 1')
+# print(output_block)
 
-m1.deallocate_memory('newfile3')
-print(m1.memory[1])
+# m1.deallocate_memory('newfile3')
+# print(m1.memory[1])
 
-outputmap = m1.memory_map()
-print(outputmap)
+# outputmap = m1.memory_map()
+# print(outputmap)
 
-m1.memory_to_json()
+# m1.memory_to_json()
 # m1.LoadMem('memory.json')
