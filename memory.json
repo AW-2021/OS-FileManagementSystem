@@ -1,262 +1,202 @@
 {
-  "0": [
-    {
-      "name": "block 0",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": true,
-      "byteOccupied": 0,
-      "fileName": "file1",
-      "fileSize": 0,
-      "content": ""
-    },
-    ""
-  ],
-  "1": [
-    {
-      "name": "block 1",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": true,
-      "byteOccupied": 18,
-      "fileName": "file2",
-      "fileSize": 18,
-      "content": "HHHHHH BBBBB NNNNN"
-    },
-    "HHHHHH BBBBB NNNNN"
-  ],
-  "2": [
-    {
-      "name": "block 2",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": true,
-      "byteOccupied": 4,
-      "fileName": "file100",
-      "fileSize": 4,
-      "content": "HERE"
-    },
-    "HERE"
-  ],
-  "3": [
-    {
-      "name": "block 3",
-      "size": 50,
-      "isFull": true,
-      "isOccupied": true,
-      "byteOccupied": 50,
-      "fileName": "file4",
-      "fileSize": 50,
-      "content": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj "
-    },
-    "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj "
-  ],
-  "4": [
-    {
-      "name": "block 4",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": true,
-      "byteOccupied": 6,
-      "fileName": "file6",
-      "fileSize": 6,
-      "content": "ol;CF;"
-    },
-    "ol;CF;"
-  ],
-  "5": [
-    {
-      "name": "block 5",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "6": [
-    {
-      "name": "block 6",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "7": [
-    {
-      "name": "block 7",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "8": [
-    {
-      "name": "block 8",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "9": [
-    {
-      "name": "block 9",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "10": [
-    {
-      "name": "block 10",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "11": [
-    {
-      "name": "block 11",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "12": [
-    {
-      "name": "block 12",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "13": [
-    {
-      "name": "block 13",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "14": [
-    {
-      "name": "block 14",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "15": [
-    {
-      "name": "block 15",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "16": [
-    {
-      "name": "block 16",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "17": [
-    {
-      "name": "block 17",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "18": [
-    {
-      "name": "block 18",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ],
-  "19": [
-    {
-      "name": "block 19",
-      "size": 50,
-      "isFull": false,
-      "isOccupied": false,
-      "byteOccupied": 0,
-      "fileName": null,
-      "fileSize": 0,
-      "content": null
-    },
-    null
-  ]
+  "0": {
+    "name": "block 0",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": true,
+    "byteOccupied": 0,
+    "fileName": "poty",
+    "fileSize": 0,
+    "content": ""
+  },
+  "1": {
+    "name": "block 1",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": true,
+    "byteOccupied": 0,
+    "fileName": "chicken",
+    "fileSize": 0,
+    "content": ""
+  },
+  "2": {
+    "name": "block 2",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": true,
+    "byteOccupied": 0,
+    "fileName": "hello",
+    "fileSize": 0,
+    "content": ""
+  },
+  "3": {
+    "name": "block 3",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "4": {
+    "name": "block 4",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "5": {
+    "name": "block 5",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "6": {
+    "name": "block 6",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "7": {
+    "name": "block 7",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "8": {
+    "name": "block 8",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "9": {
+    "name": "block 9",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "10": {
+    "name": "block 10",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "11": {
+    "name": "block 11",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "12": {
+    "name": "block 12",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "13": {
+    "name": "block 13",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "14": {
+    "name": "block 14",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "15": {
+    "name": "block 15",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "16": {
+    "name": "block 16",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "17": {
+    "name": "block 17",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "18": {
+    "name": "block 18",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  },
+  "19": {
+    "name": "block 19",
+    "size": 50,
+    "isFull": false,
+    "isOccupied": false,
+    "byteOccupied": 0,
+    "fileName": null,
+    "fileSize": 0,
+    "content": null
+  }
 }

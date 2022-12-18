@@ -3,6 +3,8 @@ import json
 import os.path
 import pickle
 import Memory as memoryManager
+
+
 class Folder:
     def __init__(self, name, location, parent):
         self.type = "folder"
@@ -13,16 +15,18 @@ class Folder:
         if self.parent != None:
             self.parent.children.append(self)
 
+
 class File:
     def __init__(self, name, content, parent):
         self.type = "file"
         self.name = name
         self.content = content
-        self.size = len(content) # Every character of string is considered 1 byte
+        # Every character of string is considered 1 byte
+        self.size = len(content)
         self.parent = parent
         self.parent.children.append(self)
 
-    def write_to_file(self, content, writeAtPosition = 0):
+    def write_to_file(self, content, writeAtPosition=0):
         if writeAtPosition == 0:
             self.content = self.content + content
             self.size = len(self.content)
@@ -52,9 +56,11 @@ class File:
         self.size = maxSize
         print("File size reduced to {} bytes".format(maxSize))
 
+
 M1 = memoryManager.Memory()
 root = Folder('root', 'root', None)
 currentDir = root
+
 
 def cd(name):
     global currentDir
@@ -84,18 +90,18 @@ def ls():
 
 def mkdir(name):
     global currentDir
-    Folder(name, name, currentDir)  
+    Folder(name, name, currentDir)
     print('Folder creation successful.')
 
 
-def create(fileName, fileContent = ""):
+def create(fileName, fileContent=""):
     global currentDir
 
     if (len(fileContent) <= 50):
         fileobj = File(fileName, fileContent, currentDir)
     else:
         fileobj = File(fileName, fileContent[0:50], currentDir)
-    
+
     block_returned = M1.write_to_block(fileobj.name, fileobj.content)
 
     if (block_returned == None):
@@ -147,7 +153,7 @@ def open_file(fileName):
         if child.name == fileName:
             if child.type == "file":
                 return child
-    
+
     print('No such file')
     return "empty"
 
@@ -182,7 +188,7 @@ def convertJsonToTree(jsonFile, parent):
     global root
 
     if (root.children == []):
-        #print("empty")
+        # print("empty")
         parent = root
 
     for key in jsonFile:
@@ -193,7 +199,7 @@ def convertJsonToTree(jsonFile, parent):
                 tempParent = Folder(key, key, parent)
 
             else:
-                File(key, jsonFile[key].get('content'),parent)
+                File(key, jsonFile[key].get('content'), parent)
                 tempParent = parent
 
             convertJsonToTree(jsonFile[key], tempParent)
@@ -218,6 +224,8 @@ def print_directory_structure(directory):
             return
 
 # To help users understand which command to enter to carry out desired operation
+
+
 def manual():
     print("\tOperation Manual")
     print("1. Make a directory - mkdir <folder>")
@@ -237,6 +245,7 @@ def manual():
     print("15. List all files & folders in current directory - ls")
     print("16. Exit the system - exit")
 
+
 # Initializing variable to store opened file in
 child = ""
 
@@ -248,11 +257,19 @@ if os.path.isfile('sample.dat'):
         jsonFile = json.load(open('sample.dat'))
         convertJsonToTree(jsonFile, parent)
 
+if os.path.isfile('memory.json'):
+    fp = open("memory.json", "r")
+    if os.stat('memory.json').st_size != 0:
+        print("hello")
+        MemoryFile = json.load(open('memory.json'))
+        M1.LoadMem(MemoryFile)
+
 print("\t|| FILE MANAGEMENT SYSTEM ||\n")
 print("Enter <man> command  to open the operations manual\n")
 
 while (True):
-    command = [command for command in input("\n{}> ".format(currentDir.name)).split()]
+    command = [command for command in input(
+        "\n{}> ".format(currentDir.name)).split()]
 
     match command[0]:
         case 'man':
@@ -302,16 +319,16 @@ while (True):
             else:
                 print('File opening failed.')
         case 'close':
-            if(child != ""):
+            if (child != ""):
                 print('{} has been closed'.format(child.name))
                 child = ""
             else:
                 print('File already closed.')
         case 'write_to_file':
-            if (child == ""): # Opening file for write if not already opened
+            if (child == ""):  # Opening file for write if not already opened
                 child = open_file(command[1])
 
-            if (child != "" and child != "empty" and len(command) >= 3): # Write at end of file
+            if (child != "" and child != "empty" and len(command) >= 3):  # Write at end of file
                 completeString = ""
                 for string in command:
                     if (command.index(string) >= 2):
@@ -322,15 +339,16 @@ while (True):
                                 completeString = completeString + " " + string
                         else:
                             break
-               
+
                 child.write_to_file(completeString)
             else:
                 print('Invalid Format. Enter "man" for operations manual')
         case 'write_at_pos':
-            if (child == ""): # Opening file for write if not already opened
+            if (child == ""):  # Opening file for write if not already opened
                 child = open_file(command[1])
 
-            if (child != "" and child != "empty" and len(command) >= 4): # Write at specified position in file
+            # Write at specified position in file
+            if (child != "" and child != "empty" and len(command) >= 4):
                 completeString = ""
                 for string in command:
                     if (command.index(string) >= 3):
@@ -345,26 +363,28 @@ while (True):
             else:
                 print('Invalid Format. Enter "man" for operations manual')
         case 'rd':
-            if (child == ""): # Opening file for write if not already opened
+            if (child == ""):  # Opening file for write if not already opened
                 child = open_file(command[1])
 
             if (child != "" and child != "empty" and len(command) == 2):
                 file_content = child.read_from_file()
                 print(file_content)
             elif (child != "" and child != "empty" and len(command) == 4):
-                file_content = child.read_from_file(int(command[2]), int(command[3]))
+                file_content = child.read_from_file(
+                    int(command[2]), int(command[3]))
                 print(file_content)
             elif (child == "" or child == "empty"):
                 print("No file was opened")
             else:
                 print('Invalid Format. Enter "man" for operations manual')
-        case 'movwithin': 
-            if (child == ""): # Opening file for write if not already opened
+        case 'movwithin':
+            if (child == ""):  # Opening file for write if not already opened
                 child = open_file(command[1])
 
             if (child != "" and child != "empty" and len(command) == 5):
-                if(int(command[3]) > int(command[2])):
-                    child.move_within_file(int(command[2]), int(command[3]), int(command[4]))
+                if (int(command[3]) > int(command[2])):
+                    child.move_within_file(
+                        int(command[2]), int(command[3]), int(command[4]))
                 else:
                     print("Target index out of range. Try again")
             elif (child == "" or child == "empty"):
@@ -372,7 +392,7 @@ while (True):
             else:
                 print('Invalid Format. Enter "man" for operations manual')
         case 'trunc':
-            if (child == ""): # Opening file for write if not already opened
+            if (child == ""):  # Opening file for write if not already opened
                 child = open_file(command[1])
 
             if (child != "" and child != "empty" and len(command) == 3):

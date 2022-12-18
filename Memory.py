@@ -1,8 +1,9 @@
 import json
 import pickle
 
+
 class Block:
-    def __init__(self, name, size = 50, isFull = False, isOccupied = False, byteOccupied = 0, fileName = None, fileSize = 0, content = None):
+    def __init__(self, name, size=50, isFull=False, isOccupied=False, byteOccupied=0, fileName=None, fileSize=0, content=None):
         self.name = name
         self.size = size
         self.isFull = isFull
@@ -11,6 +12,7 @@ class Block:
         self.fileName = fileName
         self.fileSize = fileSize
         self.content = content
+
 
 class Memory:
     def __init__(self):
@@ -21,16 +23,15 @@ class Memory:
         for i in range(self.size):
             block_obj = Block(f'block {i}')
             self.memory[i] = {
-                'name' : block_obj.name,
-                'size' : block_obj.size,
-                'isFull' : block_obj.isFull,
-                'isOccupied' : block_obj.isOccupied,
-                'byteOccupied' : block_obj.byteOccupied,
-                'fileName' : block_obj.fileName,
-                'fileSize' :  block_obj.fileSize,
-                'content' : block_obj.content           
+                'name': block_obj.name,
+                'size': block_obj.size,
+                'isFull': block_obj.isFull,
+                'isOccupied': block_obj.isOccupied,
+                'byteOccupied': block_obj.byteOccupied,
+                'fileName': block_obj.fileName,
+                'fileSize':  block_obj.fileSize,
+                'content': block_obj.content
             }
-        
 
     def write_to_block(self, fName, content):
         for block in self.memory:
@@ -59,19 +60,19 @@ class Memory:
             else:
                 print('No block initialized in memory or file size too large.')
 
-        print(f'File store for {fName} failed. Try again')                
+        print(f'File store for {fName} failed. Try again')
 
     def get_value(self, inputblock):
         for block in self.memory:
             if block['name'] == inputblock:
                 print('Block found.')
                 return block
-        
+
         print('Block not found. Try again...')
 
     def deallocate_memory(self, fname):
         for block in self.memory:
-            if block['fileName'] == fname: 
+            if block['fileName'] == fname:
                 block['fileName'] = None
                 block['byteOccupied'] = 0
                 block['isOccupied'] = False
@@ -94,11 +95,11 @@ class Memory:
         memoryStructure = dict()
 
         for i in range(len(mem)):
-            memoryStructure[i] = [mem[i], mem[i]['content']]
-            
-        #Serializing json
+            memoryStructure[i] = mem[i]
+
+        # Serializing json
         json_object = json.dumps(memoryStructure, indent=2)
- 
+
         # Writing to memory.json
         with open("memory.json", "w") as outfile:
             outfile.write(json_object)
@@ -107,6 +108,15 @@ class Memory:
         with open(savepath_pickle, "wb") as file:
             pickle.dump(self.memory, file)
 
-    def LoadMem(self, loadpath_pickle):
-        with open(loadpath_pickle, 'rb') as file:
-            self.memory = pickle.load(file)
+    def LoadMem(self, MemoryFile):
+        # iteratre over memory file
+        for i in range(len(MemoryFile)):
+            # check if block is occupied
+
+            # check if block is full
+            self.memory[i] = MemoryFile[str(i)]
+
+            # check if block is full and occupied
+            # print(MemoryFile[i])
+            # print(MemoryFile[i]['content'])
+        print(self.memory)  # print("
